@@ -137,7 +137,7 @@ Using [HTTPie](https://httpie.org/) command line HTTP client.
 
 ## Build Artifact
 
-The project's source code is continuously built and tested on every code check-in to GitHub. If all unit tests pass, the resulting Spring Boot JAR is stored in the `artifacts` branch of the  [voter-service-tw](https://github.com/ThoughtWorksInc/voter-service/tree/artifacts) GitHub repository.
+The project's source code is continuously built and tested on every code check-in to GitHub. If all unit tests pass, the resulting Spring Boot JAR is stored in the `artifacts` branch of the  [ThoughtWorksInc/voter-service](https://github.com/ThoughtWorksInc/voter-service/tree/artifacts) GitHub repository. The JAR file's name is incremented with each successful build.
 
 ![Vote Continuous Integration Pipeline](Voter-CI.png)
 
