@@ -1,10 +1,10 @@
-[![Build Status](https://travis-ci.org/garystafford/voter-service.svg?branch=master)](https://travis-ci.org/garystafford/voter-service)
+[![Build Status](https://travis-ci.org/ThoughtWorksInc/voter-service.svg?branch=master)](https://travis-ci.org/ThoughtWorksInc/voter-service)
 
 # Voter Service
 
 ## Introduction
 
-A simple Spring Boot RESTful API microservice, backed by MongoDB. The Voter service exposes several HTTP endpoints, listed below. Calling those endpoints, end-users can review candidates, submit a vote, view voting results, and view the winner. End-users can also create random voting data for simulations.
+A sample Spring Boot RESTful API microservice, backed by MongoDB. The Voter service exposes several HTTP endpoints, listed below. Calling those endpoints, end-users can review candidates, submit a vote, view voting results, and view the winner. End-users can also create random voting data for simulations.
 
 ## Quick Start
 

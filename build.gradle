@@ -17,7 +17,6 @@ apply plugin: 'spring-boot'
 
 springBoot {
     executable = true
-    buildInfo()
 }
 
 def application_name = 'voter-service'
