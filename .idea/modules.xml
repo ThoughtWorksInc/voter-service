@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/voter-service-tw.iml" filepath="$PROJECT_DIR$/.idea/modules/voter-service-tw.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/voter-service-tw_main.iml" filepath="$PROJECT_DIR$/.idea/modules/voter-service-tw_main.iml" group="voter-service-tw" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/voter-service-tw_test.iml" filepath="$PROJECT_DIR$/.idea/modules/voter-service-tw_test.iml" group="voter-service-tw" />
+    </modules>
+  </component>
+</project>
