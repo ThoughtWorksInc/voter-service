@@ -28,7 +28,7 @@ public class VoteSeedData {
     // generates random number of total votes for each candidate
     public void setRandomVotes() {
         Map candidates = new HashMap();
-        List<String> candidateList = CandidateList.candidates;
+        List<String> candidateList = CandidateList.getCandidates();
         for (int i = 0; i < candidateList.size(); i++) {
             candidates.put(candidateList.get(i), getRandomIntAsString(5, 15));
         }
@@ -36,7 +36,7 @@ public class VoteSeedData {
     }
 
     // returns random number as string
-    private String getRandomIntAsString(int min, int max) {
+    private String getRandomIntAsString(int min , int max) {
         int randomVoteCount = ThreadLocalRandom.current().nextInt(min, max + 1);
         return Integer.toString(randomVoteCount);
     }
