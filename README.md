@@ -193,6 +193,19 @@ logging:
 server:
   port: 8099
 
+---
+
+spring:
+  profiles: aws-production
+  data:
+    mongodb:
+      host: 10.0.1.6
+
+logging:
+  level:
+    root: WARN
+
+---
 
 spring:
   profiles: docker-production
@@ -202,7 +215,8 @@ spring:
 
 logging:
   level:
-    root: WARN
+    root: INFO
+
 ```
 
 ## README
