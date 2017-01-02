@@ -1,14 +1,3 @@
----
-spring:
-  profiles: aws-production
-  data:
-    mongodb:
-      host: 10.0.1.6
-logging:
-  level:
-    root: WARN
----
-
 [![Build Status](https://travis-ci.org/ThoughtWorksInc/voter-service.svg?branch=master)](https://travis-ci.org/ThoughtWorksInc/voter-service)
 
 # Voter Service
