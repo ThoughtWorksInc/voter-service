@@ -168,9 +168,9 @@ Using [HTTPie](https://httpie.org/) command line HTTP client.
 }
 ```
 
-## Build Artifact
+## Continuous Integration
 
-The project's source code is continuously built and tested on every code check-in to GitHub. If all unit tests pass, the resulting Spring Boot JAR is stored in the `artifacts` branch of the [ThoughtWorksInc/voter-service](https://github.com/ThoughtWorksInc/voter-service/tree/artifacts) GitHub repository. The JAR file's name is incremented with each successful build.
+The project's source code is continuously built and tested on every commit to [GitHub](https://github.com/ThoughtWorksInc/voter-service), using [Travis CI](https://travis-ci.org/ThoughtWorksInc/voter-service). If all unit tests pass, the resulting Spring Boot JAR is pushed to the `artifacts` branch of the [ThoughtWorksInc/voter-service](https://github.com/ThoughtWorksInc/voter-service/tree/artifacts) GitHub repository. The JAR's filename is incremented with each successful build (i.e. `voter-service-0.2.10.jar`).
 
 ![Vote Continuous Integration Pipeline](Voter-CI.png)
 
@@ -178,7 +178,7 @@ The project's source code is continuously built and tested on every code check-i
 
 The service has (3) Spring Profiles, located here, `src/main/resources/application.yml`. They are `default` (`localhost`), `aws-production`, and `docker-production`.
 
-```json
+```yaml
 spring:
   data:
     mongodb:
@@ -192,6 +192,11 @@ logging:
 
 server:
   port: 8099
+
+info:
+    java:
+      source: ${java.version}
+      target: ${java.version}
 
 ---
 
@@ -216,7 +221,6 @@ spring:
 logging:
   level:
     root: INFO
-
 ```
 
 ## README
