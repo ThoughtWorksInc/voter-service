@@ -22,7 +22,7 @@ java -jar build/libs/voter-service-0.2.0.jar
 By default, the service runs on `localhost`, port `8099`. By default, the service looks for MongoDB on `localhost`, port `27017`.
 
 Purpose                                                                                                                  | Method  | Endpoint
------------------------------------------------------------------------------------------------------------------------- | :------ | :----------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------ | :------ | :-----------------------------------------------------
 Create Random Sample Data                                                                                                | GET     | [/simulation](http://localhost:8099/simulation)
 List Candidates                                                                                                          | GET     | [/candidates](http://localhost:8099/candidates)
 Submit Vote                                                                                                              | POST    | [/votes](http://localhost:8099/votes)
@@ -33,8 +33,10 @@ View Winning Vote Count                                                         
 Service Info                                                                                                             | GET     | [/info](http://localhost:8099/info)
 Service Health                                                                                                           | GET     | [/health](http://localhost:8099/health)
 Service Metrics                                                                                                          | GET     | [/metrics](http://localhost:8099/metrics)
-Other [Spring Actuator](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready) endpoints | GET     | `/mappings`, `/env`, `/configprops`, etc.
+Other [Spring Actuator](http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready) endpoints | GET     | `/actuator`, `/mappings`, `/env`, `/configprops`, etc.
 Other [HATEOAS](https://spring.io/guides/gs/rest-hateoas) endpoints for `/votes`                                         | Various | DELETE, PATCH, PUT, page sort, size, etc.
+
+The [HAL Browser](https://github.com/mikekelly/hal-browser) API browser for the `hal+json` media type is installed alongside the service. It can be accessed at `http://localhost:8099/actuator/`.
 
 ## Voting
 
@@ -196,6 +198,14 @@ info:
   java:
     source: ${java.version}
     target: ${java.version}
+management:
+  info:
+    git:
+      mode: full
+    build:
+      enabled: true
+endpoints:
+  sensitive: true
 ---
 spring:
   profiles: aws-production
@@ -205,6 +215,18 @@ data:
 logging:
   level:
     root: WARN
+management:
+  info:
+    git:
+      enabled: false
+    build:
+      enabled: false
+endpoints:
+  enabled: false
+  info:
+    enabled: true
+  health:
+    enabled: true
 ---
 spring:
   profiles: docker-production
@@ -214,12 +236,24 @@ data:
 logging:
   level:
     root: WARN
+management:
+  info:
+    git:
+      enabled: false
+    build:
+      enabled: false
+endpoints:
+  enabled: false
+  info:
+    enabled: true
+  health:
+    enabled: true
 ```
 
-All profile property values may be overridden on the command line, or in a .conf file. For example, to start the Voter service with the `aws-production` profile, but override the `mongodb.host` value with a new host address, you might use the following command:
+All profile property values may be overridden on the command line, or in a `.conf` file. For example, to start the Voter service with the `aws-production` profile, but override the `mongodb.host` value with a new host address, you might use the following command:
 
 ```bash
-java -jar <name_of_the_jar_file> \
+java -jar <name_of_jar_file> \
   --spring.profiles.active=aws-production \
   --spring.data.mongodb.host=<new_host_address>
   -Djava.security.egd=file:/dev/./urandom

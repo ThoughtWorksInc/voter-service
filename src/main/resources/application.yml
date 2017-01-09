@@ -12,6 +12,12 @@ info:
   java:
     source: ${java.version}
     target: ${java.version}
+management:
+  info:
+    git:
+      mode: full
+    build:
+      enabled: true
 ---
 spring:
   profiles: aws-production
@@ -21,6 +27,19 @@ data:
 logging:
   level:
     root: WARN
+management:
+  info:
+    git:
+      enabled: false
+    build:
+      enabled: false
+endpoints:
+  sensitive: true
+  enabled: false
+  info:
+    enabled: true
+  health:
+    enabled: true
 ---
 spring:
   profiles: docker-production
@@ -30,3 +49,16 @@ data:
 logging:
   level:
     root: WARN
+management:
+  info:
+    git:
+      enabled: false
+    build:
+      enabled: false
+endpoints:
+  sensitive: true
+  enabled: false
+  info:
+    enabled: true
+  health:
+    enabled: true
