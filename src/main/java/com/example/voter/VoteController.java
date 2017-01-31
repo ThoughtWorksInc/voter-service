@@ -64,11 +64,11 @@ public class VoteController {
     }
 
     @RequestMapping(value = "/winners", method = RequestMethod.GET)
-    public ResponseEntity<Map<String, List<VoteCount>>> getWinner() {
+    public ResponseEntity<Map<String, List<VoteCount>>> getWinners() {
 
         Aggregation aggregation = Aggregation.newAggregation(
                 Aggregation.group("vote").count().as("count"),
-                match(Criteria.where("count").is(getWinnerVotesInt())),
+                match(Criteria.where("count").is(getWinnersVotesInt())),
                 project("count").and("vote").previousOperation(),
                 sort(Sort.Direction.ASC, "vote")
         );
@@ -80,14 +80,14 @@ public class VoteController {
     }
 
     @RequestMapping(value = "/winners/votes", method = RequestMethod.GET)
-    public ResponseEntity<VoteCountWinner> getWinnerVotes() {
+    public ResponseEntity<VoteCountWinner> getWinnersVotes() {
 
-        VoteCountWinner result = new VoteCountWinner(getWinnerVotesInt());
+        VoteCountWinner result = new VoteCountWinner(getWinnersVotesInt());
 
         return ResponseEntity.status(HttpStatus.OK).body(result); // return 200 with payload
     }
 
-    private int getWinnerVotesInt() {
+    private int getWinnersVotesInt() {
 
         Aggregation aggregation = Aggregation.newAggregation(
                 Aggregation.group("vote").count().as("count"),
@@ -107,19 +107,19 @@ public class VoteController {
     }
 
     @RequestMapping(value = "/simulation", method = RequestMethod.GET)
-    public ResponseEntity<Map<String, String>> seedData() {
+    public ResponseEntity<Map<String, String>> getSimulation() {
 
         voteRepository.deleteAll();
         VoteSeedData voteSeedData = new VoteSeedData();
         voteSeedData.setRandomVotes();
         voteRepository.save(voteSeedData.getVotes());
         Map<String, String> result = new HashMap<>();
-        result.put("message", "random simulation data created");
+        result.put("message", "simulation data created");
         return ResponseEntity.status(HttpStatus.OK).body(result); // return 200 with payload
     }
 
     // used by unit tests to create a known data set
-    public void seedData(Map candidates) {
+    public void getSimulation(Map candidates) {
 
         voteRepository.deleteAll();
         VoteSeedData voteSeedData = new VoteSeedData();

@@ -11,11 +11,18 @@ The Voter [Spring Boot](https://projects.spring.io/spring-boot/) RESTful Web Ser
 The Voter service requires MongoDB to be pre-installed and running locally, on port `27017`. The service will create the `voters` database on startup. To clone, build, test, and run the Voter service locally:
 
 ```bash
-git clone https://github.com/ThoughtWorksInc/voter-service.git
+git clone --depth 1 --branch master \
+  https://github.com/ThoughtWorksInc/voter-service.git
 cd voter-service
 ./gradlew clean cleanTest build
 java -jar build/libs/voter-service-0.2.0.jar
 ```
+
+## Getting Started with API
+The easiest way to get started with the Voter service API, using [HTTPie](https://httpie.org/) from the command line:
+1. View a list of candidates: `http http://localhost:8099/candidates`
+2. Create sample voter data: `http http://localhost:8099/simulation`
+3. View sample voter results: `http http://localhost:8099/results`
 
 ## Service Endpoints
 
@@ -71,6 +78,14 @@ wget --method POST \
 
 Using [HTTPie](https://httpie.org/) command line HTTP client.
 
+`http http://localhost:8099/simulation`
+
+```json
+{
+    "message": "simulation data created"
+}
+```
+
 `http http://localhost:8099/candidates`
 
 ```json
@@ -83,14 +98,6 @@ Using [HTTPie](https://httpie.org/) command line HTTP client.
         "Hillary Clinton",
         "Jill Stein"
     ]
-}
-```
-
-`http http://localhost:8099/simulation`
-
-```json
-{
-    "message": "random simulation data created"
 }
 ```
 
