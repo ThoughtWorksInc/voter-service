@@ -2,7 +2,7 @@
 
 ## Supplying Your SSH Public Key
 
-To begin the process, you must email us a copy of your 2048-bit SSH-2 RSA public key file (i.e. `id_rsa.pub`). If you don't already have a 2048-bit SSH-2 RSA public/private key pair, you make one using the following command.
+To begin the process, you must email us a copy of your 2048-bit SSH-2 RSA public key file (i.e. `id_rsa.pub`). If you don't already have a 2048-bit SSH-2 RSA public/private key pair, you make one using the following command:
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "<your_email@your_domain.com>"
