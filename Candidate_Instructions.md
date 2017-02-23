@@ -45,3 +45,7 @@ https://521292340873.signin.aws.amazon.com/console
 ```
 
 You will be asked to change your password on your first login.
+
+## Available AWS Services
+
+Your AWS IAM User account provides access to create and manage Amazon EC2 instances. Your account also provides access to the EC2 Container Service (ECS). If you require access to additional services to complete the test, please let us know.
