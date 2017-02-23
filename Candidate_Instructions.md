@@ -2,14 +2,14 @@
 
 ## Decrypt Credentials File
 
-ThoughtWorks has created an AWS IAM User account for you. We have supplied your User account information to you in an encrypted AWS `credentials.csv` file. For example:
+ThoughtWorks has created an [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/) User account for you. We have supplied your User account information to you in an encrypted AWS `credentials.csv` file. For example:
 
 ```text
 User name,Password,Access key ID,Secret access key,Console login link
 USER_C982F9C1D628,n3mw$xKa5![_,IKAFKSJ2XADWLCH63IV3,w4oGvn2EA9L3Lr37iyOYAQXByHeJ6l2PPH8Xkvp9,https://521292340873.signin.aws.amazon.com/console
 ```
 
-We have used your public key to encrypt your AWS User credentials file. To read the credentials file, you must first decrypt the file with their private key:
+We have used your public key to [encrypt](https://linux.die.net/man/1/rsautl) your AWS User credentials file. To read the credentials file, you must first decrypt the file with their private key:
 
 ```bash
 openssl rsautl -decrypt -inkey ~/.ssh/id_rsa -in encrypted_credentials.csv -out credentials.csv
@@ -48,4 +48,4 @@ You will be asked to change your password on your first login.
 
 ## Available AWS Services
 
-Your AWS IAM User account provides access to create and manage Amazon EC2 instances. Your account also provides access to the EC2 Container Service (ECS). If you require access to additional services to complete the test, please let us know.
+Your AWS IAM User account provides access to create and manage [Amazon EC2 instances](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Instances.html). Your account also provides access to the [EC2 Container Service (ECS)](https://aws.amazon.com/ecs/). If you require access to additional services to complete the test, please let us know.
