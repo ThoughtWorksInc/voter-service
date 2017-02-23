@@ -9,7 +9,7 @@ User name,Password,Access key ID,Secret access key,Console login link
 USER_C982F9C1D628,n3mw$xKa5![_,IKAFKSJ2XADWLCH63IV3,w4oGvn2EA9L3Lr37iyOYAQXByHeJ6l2PPH8Xkvp9,https://521292340873.signin.aws.amazon.com/console
 ```
 
-We have used your public key to [encrypt](https://linux.die.net/man/1/rsautl) your AWS User credentials file. To read the credentials file, you must first decrypt the file with their private key:
+We have used your public key to [encrypt](https://linux.die.net/man/1/rsautl) your AWS User credentials file. To read the credentials file, you must first decrypt the file with your private key, using the following command:
 
 ```bash
 openssl rsautl -decrypt -inkey ~/.ssh/id_rsa -in encrypted_credentials.csv -out credentials.csv
