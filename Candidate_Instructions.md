@@ -1,5 +1,44 @@
 # Candidate AWS IAM User Information
 
+## Supplying Your SSH Public Key
+
+To begin the process, you must email us a copy of your 2048-bit SSH-2 RSA public key file (i.e. `id_rsa.pub`). If you don't already have a 2048-bit SSH-2 RSA public/private key pair, you make one using the following command.
+
+```bash
+ssh-keygen -t rsa -b 2048 -C "<your_email@your_domain.com>"
+```
+
+Example output when generating a new public/private RSA key pair:
+
+```text
+$ ssh-keygen -t rsa -b 2048 -C "<your_email@your_domain.com>"
+
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/<your_user>/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase): <can be left blank>
+Enter same passphrase again: <can be left blank>
+Your identification has been saved in /Users/<your_user>/.ssh/id_rsa
+Your public key has been saved in /Users/<your_user>/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:CXIpWyOi1ifL2FQnlBq5cnvU/nslOCzGhhYsh/LfE3s your_email@your_domain.com
+The key's randomart image is:
++---[RSA 2048]----+
+|    ...          |
+|   o.. .         |
+|  . XoB.         |
+| +.B.%o+ .       |
+|..=+*.= S .      |
+|. =o++ B + . .   |
+| . ++ + = . o    |
+|     . + E .     |
+|        o.o      |
++----[SHA256]-----+
+
+$ ls -alh ~/.ssh/
+-rw-------   1675   Feb 21 16:17   id_rsa
+-rw-r--r--   408    Feb 21 16:17   id_rsa.pub
+```
+
 ## Decrypt Credentials File
 
 ThoughtWorks has created an [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/) User account for you. We have supplied your User account information to you in an encrypted AWS `credentials.csv` file. For example:
